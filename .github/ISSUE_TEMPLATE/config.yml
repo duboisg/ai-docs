@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Setup and design questions
+    url: https://github.com/duboisg/ai-docs/discussions
+    about: Ask for help or discuss an idea before turning it into a concrete issue.
+  - name: Security vulnerability
+    url: https://github.com/duboisg/ai-docs/security/advisories/new
+    about: Report security concerns privately instead of opening a public issue.

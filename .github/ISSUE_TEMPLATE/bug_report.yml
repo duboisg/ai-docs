@@ -1,0 +1,55 @@
+name: Bug report
+description: Report a reproducible problem in the starter kit.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Before reporting, remove credentials, personal data, and private workspace content.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Workspace instructions
+        - Skills
+        - Scheduled prompts
+        - Browser Agent MCP
+        - Second Brain MCP
+        - Google Workspace MCP
+        - Atlassian MCP
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Run ...
+        2. Configure ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include relevant Windows, PowerShell, Python, Node.js, and Codex versions.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized logs or evidence
+      description: Paste only the minimum evidence required, with secrets and personal information removed.
+    validations:
+      required: false

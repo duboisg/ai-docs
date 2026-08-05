@@ -1,0 +1,34 @@
+name: Feature request
+description: Propose a reusable improvement to the starter kit.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Explain the recurring workflow or limitation, not only the desired implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed outcome
+      description: Describe how the starter kit should behave after the change.
+    validations:
+      required: true
+  - type: textarea
+    id: reuse
+    attributes:
+      label: Reuse and scope
+      description: Who would benefit, and why does this belong in the reusable public layer?
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Trust and safety considerations
+      description: Note any new credentials, permissions, external writes, or irreversible actions.
+    validations:
+      required: false

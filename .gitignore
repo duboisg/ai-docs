@@ -9,6 +9,8 @@
 !/CLAUDE.md
 !/README.md
 !/LICENSE*
+!/.github/
+!/.github/**
 
 # Public capability, workflow and instruction layers
 !/mcp-servers/
