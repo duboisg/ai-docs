@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "ai-docs browser agent bridge",
+  "version": "1.0.16",
+  "description": "Bridge a normal Chromium session to the ai-docs browser-agent MCP server.",
+  "permissions": [
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Inbox Processing"
+  short_description: "Review and triage scheduled agent results"
+  default_prompt: "Use $agent-inbox-processing to review my pending agent actions."

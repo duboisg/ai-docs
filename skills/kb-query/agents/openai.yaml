@@ -1,0 +1,4 @@
+interface:
+  display_name: "Query Second Brain"
+  short_description: "Answer from durable personal knowledge"
+  default_prompt: "Use $kb-query to answer this from my second brain."

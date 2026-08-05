@@ -1,0 +1,7 @@
+node_modules/
+profile/
+downloads/
+.cache/
+.runtime/
+extension/bridge-config.json
+*.log

@@ -1,0 +1,10 @@
+{
+  "id": "weekly-review",
+  "name": "Weekly review",
+  "enabled": false,
+  "cron": "0 16 * * 5",
+  "timezone": "America/Toronto",
+  "model": "gpt-5.6-luna",
+  "prompt": "Review my open commitments and prepare a concise weekly review. Use relevant project context and my second brain. Write the result for the agent inbox.",
+  "delivery": "agent-inbox"
+}

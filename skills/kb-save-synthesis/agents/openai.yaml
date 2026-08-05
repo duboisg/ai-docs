@@ -1,0 +1,4 @@
+interface:
+  display_name: "Save Knowledge Synthesis"
+  short_description: "Save durable analysis into the wiki"
+  default_prompt: "Use $kb-save-synthesis to save this analysis."

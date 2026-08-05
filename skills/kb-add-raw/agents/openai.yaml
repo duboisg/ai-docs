@@ -1,0 +1,4 @@
+interface:
+  display_name: "Add Raw Knowledge"
+  short_description: "Import and ingest an external artifact"
+  default_prompt: "Use $kb-add-raw to add this artifact to my second brain."

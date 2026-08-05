@@ -1,0 +1,64 @@
+# Public starter-kit allowlist. Everything at the repository root is private or
+# generated unless it is explicitly reopened below.
+/*
+
+# Public root files
+!/.gitattributes
+!/.gitignore
+!/AGENTS.md
+!/CLAUDE.md
+!/README.md
+!/LICENSE*
+
+# Public capability, workflow and instruction layers
+!/mcp-servers/
+!/mcp-servers/**
+!/skills/
+!/skills/**
+!/scheduled-prompts/
+!/outputs/
+
+# Keep only the nested workspace instruction example under outputs.
+/outputs/*
+!/outputs/AGENTS.md
+
+# Publish the scheduler documentation and a disabled generic example only.
+/scheduled-prompts/*
+!/scheduled-prompts/README.md
+!/scheduled-prompts/example-weekly-review.json
+
+# MCP runtime state and generated artifacts
+/mcp-servers/outputs/
+/mcp-servers/**/.runtime/
+/mcp-servers/**/profile/
+/mcp-servers/**/downloads/
+/mcp-servers/**/.cache/
+/mcp-servers/**/.env.local
+
+# Dependencies, environments, caches and builds inside public trees
+**/node_modules/
+**/.venv/
+**/venv/
+**/.pytest_cache/
+**/__pycache__/
+**/dist/
+**/build/
+**/.cache/
+*.pyc
+*.pyo
+*.pyd
+
+# Generated and potentially sensitive artifacts
+*.log
+*.tmp
+*.bak
+*.ppt
+*.pptx
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.pdf
+*.csv
+*.tsv
+*.jsonl

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scheduled Prompt Management"
+  short_description: "Create and manage local scheduled prompts"
+  default_prompt: "Use $scheduled-prompt-management to schedule a recurring Codex task."

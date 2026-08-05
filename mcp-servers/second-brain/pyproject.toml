@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "second-brain-mcp"
+version = "0.1.0"
+description = "A guarded MCP interface for a Markdown second brain."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp>=1.27,<2",
+  "PyYAML>=6,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+]
+
+[project.scripts]
+second-brain-mcp = "second_brain_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/second_brain_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

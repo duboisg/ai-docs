@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ingest Knowledge Source"
+  short_description: "Compile a raw source into the wiki"
+  default_prompt: "Use $kb-ingest to process this raw source."

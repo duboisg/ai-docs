@@ -1,0 +1,9 @@
+{
+  "name": "ai-docs-google-workspace-mcp-runtime",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Pinned runtime for the Google Workspace MCP integration.",
+  "dependencies": {
+    "@aaronsb/google-workspace-mcp": "2.7.1"
+  }
+}

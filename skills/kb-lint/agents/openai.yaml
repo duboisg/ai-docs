@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lint Second Brain"
+  short_description: "Health-check the personal knowledge wiki"
+  default_prompt: "Use $kb-lint to health-check my second brain."

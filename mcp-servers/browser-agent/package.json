@@ -1,0 +1,17 @@
+{
+  "name": "ai-docs-browser-agent",
+  "private": true,
+  "version": "1.0.0",
+  "description": "MCP browser agent for an isolated Chrome for Testing session on Windows.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node --check src/server.js && node --check src/browser-supervisor.js && node --check src/bridge.js && node --check src/debug-trace.js && node --check src/snapshot.js && node --check extension/background.js && node --check scripts/mcp-smoke-test.js",
+    "smoke:mcp": "node scripts/mcp-smoke-test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "ws": "^8.18.3"
+  }
+}
