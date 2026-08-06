@@ -1,18 +1,18 @@
 # AI Docs
 
-AI Docs is a public starter kit for running Codex as a persistent work environment. It provides conventions for resumable projects, reusable skills, local MCP integrations, scheduled prompts, and a separate second brain.
+AI Docs is a public starter kit for running Codex as a persistent work environment. It defines resumable projects and reusable skills, then connects them to local MCP integrations. Scheduled prompts and a separate second brain extend that operating layer.
 
-A session can read a project's checkpoint, operate within explicit approval boundaries, produce artifacts, and update the next action for a later session. The files remain inspectable instead of hiding project state in chat history or an opaque service.
+A session can resume from a project checkpoint, work within explicit approval boundaries, and leave verified artifacts for the next session. The files remain inspectable instead of hiding project state in chat history or an opaque service.
 
-This repository contains the reusable operating layer. Private projects, credentials, browser profiles, generated artifacts, and personal knowledge stay local and are excluded from Git by design.
+This repository contains the reusable operating layer. Private work and runtime state stay local and are excluded from Git by design.
 
 ## From a second brain to an action system
 
 AI Docs is inspired by Andrej Karpathy's [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): raw sources are compiled into a structured, persistent knowledge artifact maintained by an LLM instead of being rediscovered from scratch on every query.
 
-That design remains intact here. The second brain is still a separate durable knowledge system with immutable sources, a maintained wiki, provenance, search, ingestion, synthesis, and linting.
+That design remains intact here. The second brain remains separate: immutable sources feed a maintained wiki with provenance and dedicated curation tools.
 
-AI Docs applies the same compounding model to active work. A project has current state, unfinished work, decisions, evidence, external systems, safety boundaries, recurring actions, and deliverables. The workspace gives those elements explicit locations and operating rules.
+AI Docs applies the same compounding model to active work. A project carries its current state and intended deliverables, together with recent decisions and operating context. The workspace gives that information explicit locations and operating rules.
 
 ```text
                          human intent
@@ -49,7 +49,7 @@ AI Docs applies the same compounding model to active work. A project has current
 
 ### 1. Instructions define judgment
 
-[`AGENTS.md`](AGENTS.md) is the operating contract. It tells Codex how to start work, where state belongs, what evidence is required, which actions need approval, and how to leave a task resumable.
+[`AGENTS.md`](AGENTS.md) is the operating contract. It defines how work starts and where state belongs. It also sets the evidence, approval, and handoff rules that keep a task resumable.
 
 Instructions can be nested. For example, [`outputs/AGENTS.md`](outputs/AGENTS.md) adds project-specific conventions without duplicating the root trust model.
 
@@ -69,7 +69,7 @@ The repository includes the instructions for this structure, but not the private
 
 ### 3. Skills encode reusable procedures
 
-[`skills/`](skills/) contains workflows that combine tools, decision logic, safety rules, and verification. A skill captures how to perform a class of work so the process does not have to be reinvented in every conversation.
+[`skills/`](skills/) contains workflows that combine tools with decision and safety rules. A skill captures how to perform and verify a class of work so the process does not have to be reinvented in every conversation.
 
 The included skills cover:
 
@@ -96,9 +96,9 @@ MCP servers expose what can be done. Skills decide how and when to do it. Worksp
 
 [`scheduled-prompts/`](scheduled-prompts/) turns one-off agent sessions into recurring operations.
 
-A Windows heartbeat evaluates CRON schedules, launches isolated `codex exec` sessions, preserves missed occurrences in a backlog, rate-limits catch-up work, and writes results into a local agent inbox. Schedules must select an explicit model and cannot bypass the workspace's normal trust boundaries.
+A Windows heartbeat evaluates CRON schedules and launches isolated `codex exec` sessions. It keeps missed occurrences in a rate-limited backlog and writes results into a local agent inbox. Schedules must select an explicit model and cannot bypass the workspace's normal trust boundaries.
 
-The repository publishes a disabled generic example. Real schedules, runtime state, results, and inbox records remain local.
+The repository publishes a disabled generic example. Real schedules and their runtime output remain local.
 
 ### 6. The second brain preserves durable knowledge
 
@@ -130,7 +130,7 @@ This is not an agent persona or a single monolithic application. It is the harne
 
 There is still a deliberate unresolved tension between `outputs/` and the second brain.
 
-A longitudinal project needs enough history to resume safely: decisions, results, failed approaches, current assumptions, and a meaningful log. But some of that information is also durable knowledge that could benefit other projects. If both layers retain everything, they compete and drift. If project folders retain too little, operational continuity disappears. If everything is promoted into the second brain, curation becomes noise.
+A longitudinal project needs enough history to resume safely, including recent decisions and failed approaches. Some of that information is also durable knowledge that could benefit other projects. If both layers retain everything, they compete and drift. If project folders retain too little, operational continuity disappears. If everything is promoted into the second brain, curation becomes noise.
 
 Two directions are being explored:
 
@@ -204,7 +204,7 @@ The published example is disabled. Inspect it and test the heartbeat without lau
 .\skills\scheduled-prompt-management\scripts\heartbeat.ps1 -DryRun
 ```
 
-To create a real schedule, copy the example to a new Git-ignored JSON file, customize it, and use the `scheduled-prompt-management` skill to validate it. Installing the Windows Scheduled Task is a separate, explicit step documented in that skill.
+To create a real schedule, copy and customize the example in a new Git-ignored JSON file. Use the `scheduled-prompt-management` skill to validate it. Installing the Windows Scheduled Task is a separate, explicit step documented in that skill.
 
 ## Trust model
 
@@ -223,11 +223,11 @@ The trust model favors useful continuity over unrestricted autonomy.
 
 This starter kit is intentionally modular and Windows-first. The included integrations have different authentication requirements and upstream dependencies. Some are custom MCP implementations; others are pinned or locally adapted launchers around maintained upstream projects.
 
-Private project folders, personal prompts, credentials, account data, browser state, scheduled-agent results, and the second-brain vault are intentionally absent. Bring your own data, select the capabilities you trust, and evolve the instructions with the agent as your operating model becomes clearer.
+Private user data and runtime state are intentionally absent. Bring your own data, select the capabilities you trust, and evolve the instructions with the agent as your operating model becomes clearer.
 
 ## License
 
-AI Docs is available under the [MIT License](LICENSE). You may use, modify, and redistribute it, including commercially, provided that the copyright and license notices are preserved. Third-party dependencies remain subject to their respective licenses.
+AI Docs is available under the [MIT License](LICENSE), which permits commercial reuse and modification subject to its notice requirements. Third-party dependencies remain subject to their respective licenses.
 
 ## Inspiration
 
