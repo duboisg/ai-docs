@@ -1,12 +1,8 @@
 # AI Docs
 
-**A Codex starter kit for personal AI that does not just remember context—it carries real work forward.**
+AI Docs is a public starter kit for running Codex as a persistent work environment. It provides conventions for resumable projects, reusable skills, local MCP integrations, scheduled prompts, and a separate second brain.
 
-Most personal AI systems stop at one of two places. Chat gives you intelligence without continuity: each session has to reconstruct the work. A second brain gives you continuity without agency: the knowledge is available, but it can still sit unused.
-
-AI Docs connects the two. It turns a Codex workspace into a persistent operating system for projects, reusable procedures, scheduled work, and controlled actions across real tools.
-
-The goal is simple: an agent should be able to pick up a project, understand where it stopped, use the right capabilities, produce a tangible result, and leave the work in a state that the next session can resume.
+A session can read a project's checkpoint, operate within explicit approval boundaries, produce artifacts, and update the next action for a later session. The files remain inspectable instead of hiding project state in chat history or an opaque service.
 
 This repository contains the reusable operating layer. Private projects, credentials, browser profiles, generated artifacts, and personal knowledge stay local and are excluded from Git by design.
 
@@ -16,11 +12,7 @@ AI Docs is inspired by Andrej Karpathy's [LLM Wiki](https://gist.github.com/karp
 
 That design remains intact here. The second brain is still a separate durable knowledge system with immutable sources, a maintained wiki, provenance, search, ingestion, synthesis, and linting.
 
-AI Docs asks the next question:
-
-> What if the same compounding model applied not only to what an agent knows, but to what it is trying to accomplish?
-
-A real-life project is more than knowledge. It has a current state, unfinished work, decisions, evidence, external systems, safety boundaries, recurring actions, and deliverables. AI Docs gives those elements explicit places to live and stable ways to interact.
+AI Docs applies the same compounding model to active work. A project has current state, unfinished work, decisions, evidence, external systems, safety boundaries, recurring actions, and deliverables. The workspace gives those elements explicit locations and operating rules.
 
 ```text
                          human intent
@@ -119,11 +111,11 @@ This separation matters:
 - durable synthesis can be curated instead of copied wholesale;
 - permissions for reading, importing, updating, and archiving knowledge can be controlled independently.
 
-## Why this works
+## Design rationale
 
 The filesystem gives the agent durable state without hiding it in an opaque service. Markdown keeps instructions and project state readable by both humans and models. Git makes reusable infrastructure inspectable and reviewable. MCP gives the agent narrow interfaces to the outside world. Skills turn those interfaces into repeatable work. Scheduled prompts allow useful work to continue across time.
 
-Together, these layers address several practical failure modes of everyday AI use:
+Together, these layers address recurring operational failures:
 
 - **Context is rebuilt repeatedly.** Project checkpoints make the current truth explicit.
 - **Useful processes remain trapped in chat history.** Skills turn them into versioned procedures.
@@ -225,7 +217,7 @@ AI Docs is designed to act, so its boundaries are part of the architecture:
 - knowledge mutations are independently permissioned and revision-checked;
 - scheduled work inherits the same rules as interactive work.
 
-The aim is not maximum autonomy. It is maximum useful continuity inside explicit trust boundaries.
+The trust model favors useful continuity over unrestricted autonomy.
 
 ## Current scope
 
